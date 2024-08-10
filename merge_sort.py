@@ -22,10 +22,10 @@ def devide(array):
     lefta = array[:mid]
     righta = array[mid:]
 
-    devideleft = devide(lefta)
-    devideright = devide(righta)
+    devide_left = devide(lefta)
+    devide_right = devide(righta)
 
-    return marge_short(devideleft,devideright)
+    return marge_short(devide_left,devide_right)
 
 def marge_short(leftarray,rightarray):
      result = []
