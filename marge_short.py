@@ -1,5 +1,4 @@
 array = []
-
 while True: 
         print('\nadd - adding value.')
         print('q - recive shorted value.')
@@ -8,22 +7,43 @@ while True:
 
         if user_input == 'add':
             element = input('Entar a value. ')
-            array.append(element)
+            array.append(int(element))
             print(array)
 
         if user_input == 'q':
              break
 
-def devide(a):
-    if len(a) <= 1:
-        return a
+def devide(array):
+    if len(array) <= 1:
+        return array
     
-    mid = len(a)//2
+    mid = len(array)//2
 
-    lefta = a[:mid]
-    righta = a[mid:]
+    lefta = array[:mid]
+    righta = array[mid:]
 
     devideleft = devide(lefta)
     devideright = devide(righta)
 
+    return marge_short(devideleft,devideright)
 
+def marge_short(leftarray,rightarray):
+     result = []
+
+     i , j = 0 , 0
+     while i < len(leftarray) and j < len(rightarray):
+          if leftarray[i] < rightarray[j]:
+               result.append(leftarray[i])
+               i += 1
+
+          else:
+               result.append(rightarray[j])
+               j += 1
+
+     result.extend(leftarray[i:])
+     result.extend(rightarray[j:])
+
+     return result
+
+shorted_array = devide(array)
+print(shorted_array)
