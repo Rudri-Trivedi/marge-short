@@ -14,4 +14,16 @@ while True:
         if user_input == 'q':
              break
 
+def devide(a):
+    if len(a) <= 1:
+        return a
+    
+    mid = len(a)//2
+
+    lefta = a[:mid]
+    righta = a[mid:]
+
+    devideleft = devide(lefta)
+    devideright = devide(righta)
+
 
